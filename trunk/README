@@ -9,12 +9,12 @@ This system is cross platform capable. It will run under Windows as well
 as Unix like environments without a code rewrite. This allows you to
 write your code once and run it where ever.
 
-This package defines a standard set of rountines for web sites and can
+This package defines a standard set of routines for web sites and can
 be used with web based micro services. This routines consist of input 
-validation, a way easily create and validate database queries and a 
+validation, a way to easily create and validate database queries and a 
 frame work for user authentication and authorization.
 
-INSTALLIATION
+INSTALLATION
 
 On Unix like systems, using pure Perl, run the following commands:
 
@@ -42,7 +42,7 @@ have all of the necessary modules available.
 
 DOCUMENTATION
 
-Documentaion can be found using the following command:
+Documentation can be found using the following command:
 
     perldoc XAS::Web
     
