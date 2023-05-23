@@ -1,0 +1,20 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://metacpan.org/release/XAS-Web
+Upstream-Contact: Kevin L. Esteb, <kevin@kesteb.us>
+Upstream-Name: XAS-Web
+
+Files: *
+Copyright: 2011-2023, Kevin L. Esteb, <kevin@kesteb.us>
+License: Artistic 2.0
+
+Files: debian/*
+Copyright: 2011-2023, Kevin L. Esteb <kevin@kesteb.us>
+License: Artistic 2.0
+
+License: Artistic 2.0
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License v2.0.
+ .
+ On Debian GNU/Linux systems, the complete text of the Artistic License
+ v2.0 can be found in /usr/share/common-licenses/Artistic-2.0'.
+ 

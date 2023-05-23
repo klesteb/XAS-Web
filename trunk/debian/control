@@ -1,0 +1,25 @@
+Source: libxas-web-perl
+Maintainer: Kevin L. Esteb <kevin@kesteb.us>
+Section: perl
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               perl
+Standards-Version: 4.5.1
+Homepage: https://metacpan.org/release/XAS-Web
+Rules-Requires-Root: no
+
+Package: libxas-web-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends}
+Description: Middleware for Datacenter Operations - standard web support routines
+ .
+ XAS is Middleware for Datacenter Operations. It provides standardized
+ methods, modules and philosophy for constructing large distributed
+ applications that are the backbone of your operations center.
+ .     
+ This package defines a standard set of rountines for web sites and can
+ be used with web based micro services. This routines consist of input 
+ validation, a way easily create and validate database queries and a 
+ frame work for user authentication and authorization.
+ .
