@@ -1,4 +1,5 @@
-package XAS::Model::Database::Uaf::Result::Access;
+package # hide from CPAN
+  XAS::Model::Database::Uaf::Result::Access;
 
 our $VERSION = '0.01';
 

@@ -9,7 +9,7 @@ use XAS::Class
   base      => 'Badger::Exporter',
   constants => 'TRUE FALSE',
   exports => {
-      all => "valid_url',
+      all => 'valid_url',
       any => 'valid_url'
   }
 ;

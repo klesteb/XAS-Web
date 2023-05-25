@@ -1,4 +1,5 @@
-package XAS::Model::Database::Uaf::Result::RightsList;
+package # hide from CPAN
+  XAS::Model::Database::Uaf::Result::RightsList;
 
 our $VERSION = '0.01';
 

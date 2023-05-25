@@ -7,7 +7,7 @@ use 5.8.8;
 use XAS::Class
   version => $VERSION,
   base    => 'Scaffold::Uaf::Manager',
-  mixin   => 'XAS::Uaf::Authenticate',
+  mixins  => 'XAS::Uaf::Authenticate',
 ;
 
 # ----------------------------------------------------------------------
@@ -64,10 +64,10 @@ Kevin L. Esteb E<lt>kevin@kesteb.usE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009 Kevin L. Esteb
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.6 or,
-at your option, any later version of Perl 5 you may have available.
+Copyright (c) 2012-2023 Kevin L. Esteb
+  
+This is free software; you can redistribute it and/or modify it under
+the terms of the Artistic License 2.0. For details, see the full text
+of the license at http://www.perlfoundation.org/artistic_license_2_0.
 
 =cut

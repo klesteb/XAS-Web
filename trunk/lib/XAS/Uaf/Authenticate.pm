@@ -4,11 +4,11 @@ our $VERSION = '0.01';
 
 use DateTime;
 use XAS::Uaf::User;
+use Scaffold::Constants 'TOKEN_ID';
 
 use XAS::Class
   version   => $VERSION,
   base      => 'Scaffold::Uaf::Authenticate',
-  constants => 'TOKEN_ID',
   mixins    => 'uaf_is_valid uaf_validate uaf_invalidate uaf_check_credentials',
 ;
 

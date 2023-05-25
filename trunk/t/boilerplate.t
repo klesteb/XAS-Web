@@ -2,8 +2,14 @@
 
 use strict;
 use warnings;
-use Test::More tests => 3;
+use Test::More;
 
+unless ( $ENV{RELEASE_TESTING} ) {
+    plan( skip_all => "Author tests not required for installation" );
+} else {
+    plan tests => 22;
+}
+        
 sub not_in_file_ok {
     my ($filename, %regex) = @_;
     open( my $fh, '<', $filename )
@@ -49,7 +55,25 @@ TODO: {
   );
 
   module_boilerplate_ok('lib/XAS/Web.pm');
-
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/Access.pm');
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/Actions.pm');
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/Resources.pm');
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/Rights.pm');
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/RightsList.pm');
+  module_boilerplate_ok('lib/XAS/Model/Database/Uaf/Result/Users.pm');
+  module_boilerplate_ok('lib/XAS/Uaf/ACLRule.pm');
+  module_boilerplate_ok('lib/XAS/Uaf/Authenticate.pm');
+  module_boilerplate_ok('lib/XAS/Uaf/AuthorizeFactory.pm');
+  module_boilerplate_ok('lib/XAS/Uaf/Manager.pm');
+  module_boilerplate_ok('lib/XAS/Uaf/User.pm');
+  module_boilerplate_ok('lib/XAS/Web/CheckParameters.pm');
+  module_boilerplate_ok('lib/XAS/Web/Constraints/JsonBool.pm');
+  module_boilerplate_ok('lib/XAS/Web/Constraints/ValidEmail.pm');
+  module_boilerplate_ok('lib/XAS/Web/Constraints/ValidUrl.pm');
+  module_boilerplate_ok('lib/XAS/Web/Profiles.pm');
+  module_boilerplate_ok('lib/XAS/Web/Profiles/Search.pm');
+  module_boilerplate_ok('lib/XAS/Web/Search.pm');
+  module_boilerplate_ok('lib/XAS/Web/Validate.pm');
 
 }
 

@@ -55,3 +55,43 @@ sub denies {
 
 __END__
 
+=head1 NAME
+
+XAS::Web::Uaf::ACLRule - This module provides basic access to an ACL.
+  
+=head1 SYNOPSIS
+
+ use XAS::Apps::Service::Testd;
+
+ my $app = XAS::Apps::Service::Testd->new();
+
+ exit $app->run();
+
+=head1 DESCRIPTION
+
+This module module provides a test micro service.
+  
+=head1 SEE ALSO
+
+=over 4
+
+=item L<XAS::Web|XAS::Web>
+
+=item L<XAS|XAS>
+
+=back
+
+=head1 AUTHOR
+
+Kevin L. Esteb, E<lt>kevin@kesteb.usE<gt>
+  
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (c) 2012-2023 Kevin L. Esteb
+  
+This is free software; you can redistribute it and/or modify it under
+the terms of the Artistic License 2.0. For details, see the full text
+of the license at http://www.perlfoundation.org/artistic_license_2_0.
+  
+=cut
+

@@ -1,6 +1,13 @@
 Build.PL
 Changes
+debian/changelog
+debian/control
+debian/copyright
+debian/rules
+debian/source/format
+debian/watch
 ignore.txt
+lib/XAS/Docs/Web/Installation.pm
 lib/XAS/Model/Database/Uaf/Result/Access.pm
 lib/XAS/Model/Database/Uaf/Result/Actions.pm
 lib/XAS/Model/Database/Uaf/Result/Resources.pm
@@ -22,8 +29,10 @@ lib/XAS/Web/Profiles/Search.pm
 lib/XAS/Web/Search.pm
 lib/XAS/Web/Validate.pm
 MANIFEST			This list of files
+META.json
+META.yml
 README
 t/00-load.t
 t/boilerplate.t
-t/pod-coverage.t
+t/manifest.t
 t/pod.t

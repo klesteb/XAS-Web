@@ -1,7 +1,7 @@
 XAS Web is Copyright (c) 2012-2023 Kevin L. Esteb 
 
 XAS is a set of modules, procedures and practices to help write
-consistent Perl5 code for a datacenter operations environment. For the most 
+consistent Perl5 code for a data center operations environment. For the most 
 part, this follows the Unix tradition of small discrete components that
 communicate in well defined ways.
 
@@ -26,8 +26,7 @@ On Unix like systems, using pure Perl, run the following commands:
 If you are DEB based, Debian build files have been provided. If you have a 
 Debian build environment, then you can do the following:
 
-    # debian/rules build
-    # debian/rules clean
+    # debuild -us -uc
     # dpkg -i ../libxas-web-perl_0.01-1_all.deb
 
 On Windows, do the following:
@@ -40,6 +39,10 @@ On Windows, do the following:
 It is recommended that you use Strawberry Perl, ActiveState Perl doesn't 
 have all of the necessary modules available. 
 
+And lastly, directly from CPAN:
+
+   # cpan XAS::Web
+   
 DOCUMENTATION
 
 Documentation can be found using the following command:

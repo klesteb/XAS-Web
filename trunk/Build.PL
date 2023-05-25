@@ -12,6 +12,7 @@ my $requires = {
     'DBIx::Class' => '0.08196',
     'DBIx::Class::Schema::Config' => '0.001010',
     'DBIx::Class::OptimisticLocking' => '0.02',
+    'Data::FormValidator::Constraints::MethodsFactory' => 0,
 };
     
 my $sysconfig = ( -e '/etc/default' ) ? '/etc/default' : '/etc/sysconfig';
@@ -293,12 +294,11 @@ my $builder = $class->new(
     },
     meta_add => {
         resources => {
-            homepage   => 'http://scm.kesteb.us/trac',
-            repository => 'http://scm.kesteb.us/git/XAS-Model',
+            homepage   => 'https://github.com/klesteb/XAS-Web',
+            repository => 'https://github.com/klesteb/XAS-Web.git',
         },
     },
     add_to_cleanup     => [ 'XAS-Web-*' ],
-    create_makefile_pl => 'traditional',
     install_path       => $install_path,
     requires           => $requires
 );
