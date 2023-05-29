@@ -5,6 +5,7 @@ use Module::Build;
 my $requires = {
     'perl' => 5.008_08,
     'XAS'  => '0.11',
+    'Scaffold' => '0.11',
     'Email::Valid' => 0,
     'DateTime' => 0,
     'Hash::Merge' => 0,
