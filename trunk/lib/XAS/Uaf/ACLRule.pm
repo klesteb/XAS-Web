@@ -4,7 +4,8 @@ our $VERSION = '0.01';
 
 use XAS::Class
   version => $VERSON,
-  base    => 'Scaffold::Uaf::Rule'
+  base    => 'Scaffold::Uaf::Rule',
+  utils   => ':validation',
 ;
 
 # ----------------------------------------------------------------------
@@ -12,7 +13,8 @@ use XAS::Class
 # ----------------------------------------------------------------------
 
 sub grants {
-    my ($self, $user, $action, $resource) = @_;
+    my $self = shift;
+    my ($user, $action, $resource) = validate_params(@_, [1,1,1]);
 
     my $rights;
     my $stat = 0;
@@ -39,7 +41,8 @@ sub grants {
 }
 
 sub denies {
-    my ($self, $user, $action, $resource) = @_;
+    my $self = shift;
+    my ($user, $action, $resource) = validate_params(@_, [1,1,1]);
 
     # By default, deny everything.
 

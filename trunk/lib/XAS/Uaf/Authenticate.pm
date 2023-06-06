@@ -9,6 +9,7 @@ use Scaffold::Constants 'TOKEN_ID';
 use XAS::Class
   version   => $VERSION,
   base      => 'Scaffold::Uaf::Authenticate',
+  utils     => 'dotid, :validation',
   mixins    => 'uaf_is_valid uaf_validate uaf_invalidate uaf_check_credentials',
 ;
 
@@ -68,7 +69,7 @@ sub uaf_is_valid {
                 if ($dt > $expiration) {
 
                     $self->throw_msg(
-                        'xas.uaf.uaf_is_valid.expiredacct',
+                        dotid($self->class) . '.expiredacct',
                         'expiredacct'
                     );
 
@@ -77,7 +78,7 @@ sub uaf_is_valid {
                 if (substr($access->{$day}, $hour, 1) ne 'Y') {
 
                     $self->throw_msg(
-                        'xas.uaf.uaf_is_valid.noaccess',
+                        dotid($self->class) . '.noaccess',
                         'noaccess'
                     );
 
@@ -86,7 +87,7 @@ sub uaf_is_valid {
                 if ($last_access->epoch < ($dt->epoch - $self->uaf_timeout)) {
 
                     $self->throw_msg(
-                        'xas.uaf.uaf_is_valid.sessionend',
+                        dotid($self->class) . '.sessionend',
                         'sessionend'
                     );
 
@@ -103,7 +104,8 @@ sub uaf_is_valid {
 }
 
 sub uaf_validate {
-    my ($self, $username, $password) = @_;
+    my $self = shift;
+    my ($username, $password) = validate_params(@_, [1,1]);
 
     my $user;
     my $data;
@@ -129,7 +131,8 @@ sub uaf_validate {
 }
 
 sub uaf_check_credentials {
-    my ($self, $username, $password) = @_;
+    my $self = shift;
+    my ($username, $password) = validate_params(@_, [1,1]);
 
     my $user;
     my $data;

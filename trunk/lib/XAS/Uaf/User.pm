@@ -17,20 +17,12 @@ use XAS::Class
   version   => $VERSION,
   base      => 'Scaffold::Uaf::User XAS::Base',
   codec     => 'JSON',
-  utils     => 'db2dt',
+  utils     => 'db2dt dotid :validation',
   messages => {
       nouser => 'unable to find %s',
       error => '%s'
   }
 ;
-
-Params::Validate::validation_options(
-    on_fail => sub {
-        my $param = shift;
-        my $class = __PACKAGE__;
-        XAS::Base::validation_exception($param, $class);
-    }
-);
 
 use Data::Dumper;
 
@@ -87,17 +79,15 @@ sub init {
     my $handle;
     my $self = $class->SUPER::init(@_);
 
-    my %p = validate(@_,
-        {
-            -json     => {optional => 1},
-            -data     => {optional => 1},
-            -userid   => {optional => 1},
-            -username => {optional => 1},
-            -handle   => {optional => 1}
-        }
-    );
+    my $p = validate_params(@_, {
+        -json     => {optional => 1},
+        -data     => {optional => 1},
+        -userid   => {optional => 1},
+        -username => {optional => 1},
+        -handle   => {optional => 1} 
+    });
 
-    $self->{config} = \%p;
+    $self->{config} = $p;
     $handle = $p{'-handle'};
 
     if (defined($v = delete($p{'-username'}))) {
@@ -127,7 +117,11 @@ sub init {
 }
 
 sub _load_with_username {
-    my ($self, $username, $handle) = @_;
+    my $self = shift;
+    my ($username, $handle) = validate_params(@_, [
+        { type => SCALAR },
+        { type => SCALAR ),
+    });
 
     my $row;
     my @rights;
@@ -141,7 +135,7 @@ sub _load_with_username {
     } else {
 
         $self->throw_msg(
-            'xas.uaf.user.load_with_username',
+            dotid($self->class) . '.load_with_username',
             'nouser',
             $username
         );
@@ -151,7 +145,11 @@ sub _load_with_username {
 }
 
 sub _load_with_userid {
-    my ($self, $userid, $handle) = @_;
+    my $self = shift;
+    my ($username, $handle) = validate_params(@_, [
+        { type => SCALAR },
+        { type => SCALAR ),
+    });
 
     my $row;
     my $access;
@@ -165,7 +163,7 @@ sub _load_with_userid {
     } else {
 
         $self->throw_msg(
-            'xas.uaf.user.load_with_userid',
+            dotid($self->class) . '.load_with_userid',
             'nouser',
             $userid
         );
@@ -175,7 +173,8 @@ sub _load_with_userid {
 }
 
 sub _load_with_json {
-    my ($self, $data) = @_;
+    my $self = shift;
+    my ($data) = validate_params(@_, [1]);
 
     my $items = decode($data);
 
@@ -184,7 +183,8 @@ sub _load_with_json {
 }
 
 sub _load_with_data {
-    my ($self, $data) = @_;
+    my $self = shift;
+    my ($data) = validate_params(@_, [1]);
 
     $self->{username} = delete($data->{username});
 
@@ -197,7 +197,8 @@ sub _load_with_data {
 }
 
 sub _load_user_rec {
-    my ($self, $row) = @_;
+    my $self = shift;
+    my ($row) = validate_params(@_, [1]);
 
     my $access;
     my $rights;
@@ -245,7 +246,8 @@ sub _load_user_rec {
 }
 
 sub _save_user_rec {
-    my ($self, $handle) = @_;
+    my $self = shift;
+    my ($handle) = validate_params(@_, [1]);
 
     my $rec;
 
@@ -267,7 +269,11 @@ sub _save_user_rec {
 
         my $ex = $_;
 
-        die $ex;
+        $self->throw_msg(
+            dotid($self->class) . '._save_user_rec',
+            'errors',
+            $ex->info
+        );
 
     };
 
